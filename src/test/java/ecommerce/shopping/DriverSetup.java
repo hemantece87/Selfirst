@@ -13,11 +13,12 @@ public class DriverSetup {
 		
 	public WebDriver setUpDriver(String driverName){
 		WebDriver driver;
-		switch(driverName){
-			case "FF":
+		int num = 2;
+		switch(num){
+			case 1:
 				driver = new FirefoxDriver();
 				break;
-			case "CH":
+			case 2:
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\test\\java\\testResources\\chromedriver.exe");
 				driver = new ChromeDriver();
 				break;
