@@ -18,9 +18,6 @@ WebDriver driver;
 	@FindBy(how = How.XPATH, using="//form[@id='searchbox']/button")
 	private WebElement searchButton;
 	
-	@FindBy(how = How.ID, using="SubmitLogin")
-	private WebElement submitButton;
-	
 	@FindBy(how = How.CLASS_NAME, using="logout")
 	private WebElement logoutButton;
 	
@@ -33,9 +30,10 @@ WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void searchItem(String searchText) {
+	public ProductPages searchItem(String searchText) {
 		searchBox.sendKeys(searchText);
 		searchButton.click();
+		return this;
 	}
 	
 	public boolean verifySearchResults() {

@@ -9,6 +9,9 @@ public class LoginPage {
 	
 	WebDriver driver;
 	
+	@FindBy(className="login")
+	private WebElement loginLink;
+	
 	@FindBy(id="email")
 	private WebElement emailID;
 		
@@ -26,14 +29,20 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void loginUser(String userName, String password) {
-		System.out.println(emailID.getAttribute("name"));
+	public LoginPage clickLoginButton() {
+		loginLink.click();
+		return this;
+	}
+
+	public HomePage loginUser(String userName, String password) {
 		emailID.sendKeys(userName);
 		passwordEle.sendKeys(password);
 		submitButton.click();
+		return new HomePage(driver);
 	}
 
-	public void logout() {
+	public LoginPage logout() {
 		logoutButton.click();
+		return this;
 	}
 }
