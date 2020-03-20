@@ -10,6 +10,7 @@ import ecommerce.AppPages.LoginPage;
 import ecommerce.AppPages.ProductPages;
 import ecommerce.shopping.DriverSetup;
 import ecommerce.shopping.PropertyReader;
+import junit.framework.Assert;
 
 public class ProductSearch {
 	WebDriver driver;
@@ -25,16 +26,28 @@ public class ProductSearch {
 		driver = driSetUp.setUpDriver(driverName);
 	}
 	
+	//@Test
+	/*
+	 * public void searchItemAfterLoginAndVerifyResults() {
+	 * driver.get(PropertyReader.readProperty("shoppingPageURL")); loginObj = new
+	 * LoginPage(driver);
+	 * 
+	 * homePageObj = loginObj .clickLoginButton()
+	 * .loginUser(PropertyReader.readProperty("username"),
+	 * PropertyReader.readProperty("password"));
+	 * 
+	 * homePageObj.searchItem("printed chiffon dress");
+	 * 
+	 * }
+	 */
+	
 	@Test
-	public void searchItemAndVerifyResults() {
+	public void searchItemWithoutLoginAndVerifyResults() {
 		driver.get(PropertyReader.readProperty("shoppingPageURL"));
-		loginObj = new LoginPage(driver);
-		
-		homePageObj = loginObj
-			.clickLoginButton()
-			.loginUser(PropertyReader.readProperty("username"), PropertyReader.readProperty("password"));
 		
 		homePageObj.searchItem("printed chiffon dress");
+		//Assert.assertEquals(expected, actual);\
+		productObj.hoverToCategory();
 	}
 
 	@AfterClass

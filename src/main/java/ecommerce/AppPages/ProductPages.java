@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -24,6 +25,8 @@ WebDriver driver;
 	@FindBy(css = ".product-image-container")
 	private List<WebElement> listProducts;
 	
+	@FindBy(css = ".Categories")
+	private WebElement categoryLabel;
 	
 	public ProductPages(WebDriver driver) {
 		this.driver = driver;
@@ -41,6 +44,12 @@ WebDriver driver;
 		return true;	
 		} else
 		    return false;
+	}
+	
+	public ProductPages hoverToCategory() {
+		Actions actionBuilder = new Actions(driver);
+		actionBuilder.moveToElement(categoryLabel).build().perform();
+		return this;
 	}
 	
 	public void addToCart(String item){

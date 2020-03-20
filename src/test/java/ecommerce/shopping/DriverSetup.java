@@ -19,7 +19,8 @@ public class DriverSetup {
 				driver = new FirefoxDriver();
 				break;
 			case 2:
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\test\\java\\ecommerce\\testResources\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +
+						"\\src\\test\\java\\ecommerce\\testResources\\chromedriver.exe");
 				driver = new ChromeDriver();
 				break;
 				default:
