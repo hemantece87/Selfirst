@@ -6,7 +6,7 @@ import org.testng.annotations.*;
 
 import ecommerce.AppPages.LoginPage;
 import ecommerce.shopping.DriverSetup;
-import ecommerce.shopping.PropertyReader;;
+import ecommerce.shopping.PropertyReader;
 
 public class LoginTest {
 
@@ -33,10 +33,10 @@ public class LoginTest {
 		    .loginUser(userName, password);
 		
 		if(isTrue) {
-		    Assert.assertEquals("My account - My Store", driver.getTitle());
+		    Assert.assertEquals(driver.getTitle(), "My account - My Store");
 		    loginObj.logout();
 		} else {
-			Assert.assertEquals("Login - My Store", driver.getTitle());
+			Assert.assertEquals(driver.getTitle(), "Login - My Store");
 		}
 	}
 	
