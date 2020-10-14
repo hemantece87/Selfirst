@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
@@ -21,7 +22,10 @@ public class DriverSetup {
 			case 2:
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +
 						"\\src\\test\\java\\ecommerce\\testResources\\chromedriver.exe");
-				driver = new ChromeDriver();
+				ChromeOptions chromeOptions = new ChromeOptions();
+				chromeOptions.addArguments("--headless");
+				 
+				driver = new ChromeDriver(chromeOptions);
 				break;
 				default:
 					driver = new InternetExplorerDriver();

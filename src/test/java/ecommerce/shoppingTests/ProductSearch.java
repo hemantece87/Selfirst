@@ -4,13 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import ecommerce.AppPages.HomePage;
 import ecommerce.AppPages.LoginPage;
 import ecommerce.AppPages.ProductPages;
 import ecommerce.shopping.DriverSetup;
 import ecommerce.shopping.PropertyReader;
-import junit.framework.Assert;
 
 public class ProductSearch {
 	WebDriver driver;
@@ -47,7 +45,7 @@ public class ProductSearch {
 		
 		homePageObj.searchItem("printed chiffon dress");
 		//Assert.assertEquals(expected, actual);\
-		productObj.hoverToCategory();
+		//productObj.hoverToCategory();
 	}
 
 	@AfterClass
