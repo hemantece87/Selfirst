@@ -1,6 +1,11 @@
 package ecommerce.shoppingTests;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -19,6 +24,16 @@ public class LoginTest {
 		String driverName = "CH";
 		driSetUp = new DriverSetup();
 		driver = driSetUp.setUpDriver(driverName);
+		/*
+		 * Wait wait = new FluentWait(driver). withTimeout(20, TimeUnit.SECONDS).
+		 * pollingEvery(200, TimeUnit.MILLISECONDS). ignoring(Exception.class);
+		 * JavascriptExecutor js = (JavascriptExecutor) driver;
+		 * js.executeScript("window.scrollBy(0,1000)");
+		 * 
+		 * js.executeScript("arguement[0].click;", button1);
+		 * js.executeScript("alert('welcome to Test');");
+		 * js.executeScript("return document.title;");
+		 */
 	}
 	
 	@Test(dataProvider = "loginTestData")
@@ -44,7 +59,8 @@ public class LoginTest {
 	public Object[][] loginTestData(){
 		Object[][] a = { {"Hemant", "Badaya", false},
 				{"hemantb_net@yahoo.co.in", "Sondes@123", true},
-				{"Hemant", "Bahaar", false}
+				{"Hemant", "Bahaar", false},
+				{"TestInvalid", "Pwdinvalis", false}
 		};
 		return a;
 	}
