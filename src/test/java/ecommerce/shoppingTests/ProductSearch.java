@@ -26,20 +26,20 @@ public class ProductSearch {
 		driver = driSetUp.setUpDriver(driverName);
 	}
 	
-	//@Test
-	/*
-	 * public void searchItemAfterLoginAndVerifyResults() {
-	 * driver.get(PropertyReader.readProperty("shoppingPageURL")); loginObj = new
-	 * LoginPage(driver);
-	 * 
-	 * homePageObj = loginObj .clickLoginButton()
-	 * .loginUser(PropertyReader.readProperty("username"),
-	 * PropertyReader.readProperty("password"));
-	 * 
-	 * homePageObj.searchItem("printed chiffon dress");
-	 * 
-	 * }
-	 */
+	
+	@Test
+	public void searchItemAfterLoginAndVerifyResults() {
+	  driver.get(PropertyReader.readProperty("shoppingPageURL")); 
+	  loginObj = new LoginPage(driver);
+	  
+	  homePageObj = loginObj .clickLoginButton()
+	  .loginUser(PropertyReader.readProperty("username"),
+	  PropertyReader.readProperty("password"));
+	  
+	  homePageObj.searchItem("printed chiffon dress");
+	  
+	  }
+	 
 	
 	@Test
 	public void searchItemWithoutLoginAndVerifyResults() {
